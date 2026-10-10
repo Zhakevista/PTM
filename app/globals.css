@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #1e3a8a;
+}
+
+html,
+body {
+  background: #172554;
+  color: #fff;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Крупные зоны нажатия для сенсорной панели */
+button {
+  touch-action: manipulation;
+}
