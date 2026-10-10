@@ -1,0 +1,22 @@
+{
+  "rules": {
+    "subjects": {
+      ".read": true,
+      ".write": false
+    },
+    "queues": {
+      "$subjectId": {
+        ".read": true,
+        ".write": true,
+        "entries": {
+          "$entryId": {
+            ".validate": "newData.hasChildren(['name', 'number', 'joinedAt', 'status'])",
+            "name": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 80" },
+            "number": { ".validate": "newData.isNumber()" },
+            "status": { ".validate": "newData.val() == 'waiting' || newData.val() == 'current' || newData.val() == 'done'" }
+          }
+        }
+      }
+    }
+  }
+}
